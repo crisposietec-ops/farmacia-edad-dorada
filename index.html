@@ -4,390 +4,549 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Farmacia Edad Dorada | Cuidamos de ti</title>
+<title>Farmacia Edad Dorada</title>
 <style>
 :root {
-  --navy:#102743;
-  --navy2:#183957;
-  --gold:#d5b35c;
-  --cream:#faf8f2;
-  --text:#263548;
-  --muted:#6b7787;
+  --azul: #102c4e;
+  --azul2: #1d4770;
+  --dorado: #d6b56d;
+  --crema: #faf8f2;
+  --blanco: #ffffff;
+  --texto: #263449;
+  --gris: #6c7786;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,sans-serif;color:var(--text);background:#fff}
-button,input,select{font:inherit}
-button{cursor:pointer}
-header{background:var(--navy);color:white;padding:17px 6%;display:flex;
-justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:12px}
-.logo{width:48px;height:48px;border:2px solid var(--gold);border-radius:50%;
-display:grid;place-items:center;color:var(--gold);font-size:25px}
-.brand h1{font-size:18px;letter-spacing:1px;margin:0;color:var(--gold)}
-.brand p{font-size:11px;margin:5px 0 0;color:#e4e9ef}
-nav{display:flex;gap:19px;flex-wrap:wrap}
-nav a{color:white;text-decoration:none;font-size:13px}
-nav a:hover{color:var(--gold)}
-.hero{background:linear-gradient(110deg,#102743ee,#183957d9),
-linear-gradient(45deg,#d5b35c,#faf8f2);color:white;padding:76px 7%;
-min-height:360px;display:flex;align-items:center}
-.hero-inner{max-width:690px}
-.eyebrow{color:var(--gold);font-size:12px;letter-spacing:2px;font-weight:bold}
-.hero h2{font-family:Georgia,serif;font-size:clamp(34px,5vw,55px);
-line-height:1.1;margin:15px 0}
-.hero p{line-height:1.7;color:#e6ebf1;max-width:540px}
-.btn{border:0;border-radius:6px;padding:12px 17px;font-weight:bold;
-display:inline-block;text-decoration:none}
-.btn-gold{background:var(--gold);color:var(--navy)}
-.btn-outline{background:transparent;border:1px solid var(--gold);color:white}
-.hero .btn{margin:10px 8px 0 0}
-.trust{display:flex;justify-content:center;gap:35px;flex-wrap:wrap;
-padding:20px;background:var(--cream);color:var(--navy);font-size:13px}
-section{padding:58px 6%}
-.section-title{text-align:center;margin:0 auto 28px;max-width:650px}
-.section-title h2{font-family:Georgia,serif;font-size:32px;color:var(--navy);margin:0 0 10px}
-.section-title p{color:var(--muted);line-height:1.6}
-.filters{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin:25px 0}
-.filter{border:1px solid #d8dee6;background:white;border-radius:22px;
-padding:10px 15px;color:var(--navy)}
-.filter.active,.filter:hover{background:var(--navy);color:white}
-.searchbar{max-width:550px;margin:0 auto 24px;display:flex;gap:8px}
-.searchbar input{width:100%;padding:13px;border:1px solid #d8dee6;border-radius:7px}
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:19px}
-.card{border:1px solid #e8e9ec;border-radius:12px;overflow:hidden;
-background:white;display:flex;flex-direction:column;transition:.2s}
-.card:hover{transform:translateY(-3px);box-shadow:0 8px 22px #10274312}
-.product-art{height:155px;display:grid;place-items:center;
-background:linear-gradient(135deg,#f7f3e8,#eef2f6);font-size:64px}
-.card-content{padding:16px;display:flex;flex-direction:column;flex:1}
-.tag{font-size:10px;color:#896c23;text-transform:uppercase;letter-spacing:1px}
-.card h3{font-size:16px;line-height:1.35;color:var(--navy);margin:9px 0}
-.card p{font-size:12px;line-height:1.5;color:var(--muted);margin:0 0 12px}
-.price{font-size:20px;font-weight:bold;color:#9a7623;margin-top:auto;padding:8px 0}
-.demo{font-size:10px;color:#737373;margin-bottom:12px}
-.add{background:var(--navy);color:white;border:0;border-radius:6px;padding:11px}
-.add:hover{background:var(--navy2)}
-.empty{text-align:center;grid-column:1/-1;padding:30px;color:var(--muted)}
-.notice{background:#fff8e7;border-left:4px solid var(--gold);padding:14px;
-font-size:12px;line-height:1.6;margin-top:25px}
-.about{background:var(--cream)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
-.about h2{font-family:Georgia,serif;color:var(--navy);font-size:32px}
-.about p{line-height:1.8;color:#596577}
-.values{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.value{background:white;padding:18px;border-radius:9px;border:1px solid #eee}
-.value strong{display:block;color:var(--navy);margin:8px 0}
-.value span{font-size:12px;color:var(--muted);line-height:1.5}
-.loyalty{background:var(--navy);color:white}
-.loyalty .section-title h2{color:white}
-.loyalty .section-title p{color:#d7e0e9}
-.formbox{max-width:650px;margin:auto;background:white;color:var(--text);
-padding:26px;border-radius:12px}
-.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.field{display:flex;flex-direction:column;gap:7px}
-.field.full{grid-column:1/-1}
-.field label{font-size:12px;font-weight:bold;color:var(--navy)}
-.field input,.field select{padding:12px;border:1px solid #d8dee6;border-radius:6px;background:white}
-.check{display:flex;align-items:flex-start;gap:9px;font-size:12px;
-line-height:1.5;margin:15px 0}
-.check input{margin-top:3px}
-.formbox button{width:100%}
-#formMessage{font-size:13px;line-height:1.5;margin-top:14px}
-.cart-fab{position:fixed;bottom:20px;right:20px;background:var(--gold);
-color:var(--navy);border:0;border-radius:30px;padding:14px 18px;
-box-shadow:0 5px 20px #0002;font-weight:bold;z-index:5}
-.cart-panel{position:fixed;right:0;top:0;width:min(390px,100%);
-height:100vh;overflow:auto;background:white;z-index:10;box-shadow:0 0 0 999px #10274355;
-padding:24px;display:none}
-.cart-panel.open{display:block}
-.cart-head{display:flex;justify-content:space-between;align-items:center}
-.cart-head h2{color:var(--navy)}
-.close{border:0;background:#eee;border-radius:50%;width:34px;height:34px}
-.cart-line{padding:13px 0;border-bottom:1px solid #eee;font-size:13px}
-.cart-line button{float:right;border:0;background:none;color:#a33}
-.cart-total{font-size:20px;font-weight:bold;color:var(--navy);margin:22px 0}
-footer{background:#091a2c;color:#dce3eb;padding:32px 6%;text-align:center}
-footer strong{color:var(--gold)}
-footer p{font-size:12px;line-height:1.7}
-@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:600px){
- header{padding:15px 5%}nav{gap:12px}
- .hero{padding:55px 6%;min-height:320px}
- section{padding:43px 5%}
- .grid{gap:11px}.product-art{height:115px;font-size:48px}
- .card-content{padding:11px}.card h3{font-size:14px}
- .price{font-size:17px}.about-grid{grid-template-columns:1fr}
- .formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}
- .section-title h2{font-size:27px}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--crema);
+  color: var(--texto);
+}
+header {
+  background: var(--azul);
+  color: white;
+  padding: 17px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.logo { font-size: 23px; font-weight: 800; }
+.logo span { color: var(--dorado); }
+nav { display: flex; flex-wrap: wrap; gap: 19px; align-items: center; }
+nav a { color: white; text-decoration: none; font-size: 14px; }
+nav a:hover { color: var(--dorado); }
+.cart-button {
+  background: var(--dorado);
+  color: var(--azul);
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 7px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.hero {
+  background: linear-gradient(115deg, #102c4e, #234d75);
+  color: white;
+  padding: 76px 8%;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 35px;
+  align-items: center;
+}
+.hero h1 { font-size: clamp(34px, 5vw, 55px); margin: 10px 0 18px; line-height: 1.12; }
+.hero p { line-height: 1.8; max-width: 580px; }
+.hero .eyebrow { color: var(--dorado); font-weight: bold; letter-spacing: 2px; }
+.hero-art {
+  background: #ffffff12;
+  border: 1px solid #ffffff30;
+  border-radius: 22px;
+  padding: 32px;
+  text-align: center;
+}
+.hero-art strong { color: var(--dorado); font-size: 25px; display: block; }
+.hero-art p { margin: 10px auto 0; }
+.btn {
+  display: inline-block;
+  background: var(--dorado);
+  color: var(--azul);
+  text-decoration: none;
+  padding: 13px 20px;
+  border-radius: 7px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+section { padding: 55px 6%; }
+.section-heading { text-align: center; margin-bottom: 30px; }
+.section-heading h2 { color: var(--azul); font-size: 30px; margin-bottom: 10px; }
+.section-heading p { color: var(--gris); line-height: 1.6; }
+.category-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.category {
+  border: 1px solid #e4dfd2;
+  border-radius: 10px;
+  background: white;
+  padding: 17px 12px;
+  color: var(--azul);
+  cursor: pointer;
+  font-weight: bold;
+  line-height: 1.4;
+}
+.category.active, .category:hover {
+  background: var(--azul);
+  color: white;
+  border-color: var(--azul);
+}
+.search-row {
+  display: flex;
+  gap: 12px;
+  max-width: 750px;
+  margin: 0 auto 28px;
+}
+.search-row input {
+  flex: 1;
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid #d7dce3;
+  border-radius: 8px;
+  font-size: 15px;
+}
+.search-row select {
+  max-width: 180px;
+  padding: 12px;
+  border: 1px solid #d7dce3;
+  border-radius: 8px;
+  background: white;
+}
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+.product {
+  background: white;
+  border: 1px solid #e8e5dc;
+  border-radius: 13px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s, box-shadow .2s;
+}
+.product:hover { transform: translateY(-4px); box-shadow: 0 10px 24px #102c4e12; }
+.product-image {
+  height: 220px;
+  padding: 15px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #f0eee8;
+}
+.product-image img {
+  max-width: 100%;
+  max-height: 190px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.product-image .image-fallback {
+  display: none;
+  color: var(--azul);
+  text-align: center;
+  padding: 15px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+.product-info { padding: 17px; display: flex; flex-direction: column; flex: 1; }
+.tag {
+  font-size: 11px;
+  color: #76591c;
+  background: #f7eed8;
+  padding: 5px 8px;
+  border-radius: 20px;
+  align-self: flex-start;
+  margin-bottom: 10px;
+}
+.product h3 { color: var(--azul); font-size: 16px; margin: 0 0 8px; line-height: 1.4; }
+.product p { color: var(--gris); font-size: 13px; line-height: 1.5; margin: 0 0 14px; }
+.price { font-weight: 800; font-size: 19px; color: var(--azul); margin-top: auto; }
+.fake-price { font-size: 11px; color: #7c8188; margin: 5px 0 13px; }
+.add {
+  width: 100%;
+  border: 0;
+  border-radius: 7px;
+  background: var(--azul);
+  color: white;
+  padding: 11px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.add:hover { background: var(--azul2); }
+.notice {
+  text-align: center;
+  font-size: 12px;
+  color: var(--gris);
+  margin-top: 25px;
+  line-height: 1.6;
+}
+.about {
+  background: #edf1f4;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+.about h2 { color: var(--azul); font-size: 30px; }
+.about p { line-height: 1.8; }
+.about-card {
+  background: white;
+  border-radius: 14px;
+  padding: 27px;
+  border-left: 5px solid var(--dorado);
+  line-height: 1.8;
+}
+.loyalty {
+  background: white;
+  border: 1px solid #e6e1d6;
+  max-width: 700px;
+  margin: auto;
+  padding: 28px;
+  border-radius: 14px;
+}
+.loyalty label { display: block; margin: 14px 0 6px; font-weight: bold; color: var(--azul); }
+.loyalty input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d7dce3;
+  border-radius: 7px;
+}
+.loyalty button {
+  margin-top: 18px;
+  width: 100%;
+  background: var(--azul);
+  color: white;
+  border: 0;
+  padding: 13px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-weight: bold;
+}
+footer {
+  background: var(--azul);
+  color: white;
+  padding: 32px 6%;
+  text-align: center;
+  line-height: 1.8;
+}
+footer span { color: var(--dorado); }
+.modal {
+  position: fixed;
+  inset: 0;
+  background: #0008;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 10;
+}
+.modal.open { display: flex; }
+.modal-box {
+  background: white;
+  border-radius: 14px;
+  padding: 25px;
+  width: min(500px, 100%);
+  max-height: 85vh;
+  overflow: auto;
+}
+.modal-box h2 { color: var(--azul); }
+.cart-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+.close {
+  float: right;
+  border: 0;
+  background: #eee;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+@media (max-width: 950px) {
+  .products { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .category-list { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 650px) {
+  header { padding: 17px 5%; }
+  nav { gap: 12px; }
+  .hero { grid-template-columns: 1fr; padding: 48px 6%; }
+  .hero-art { padding: 24px; }
+  section { padding: 42px 5%; }
+  .products { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .product-image { height: 170px; padding: 10px; }
+  .product-image img { max-height: 145px; }
+  .product-info { padding: 12px; }
+  .product h3 { font-size: 14px; }
+  .price { font-size: 17px; }
+  .about { grid-template-columns: 1fr; }
+  .search-row { flex-direction: column; }
+  .search-row select { max-width: none; }
+}
+@media (max-width: 380px) {
+  .products { grid-template-columns: 1fr; }
+  .product-image { height: 220px; }
 }
 </style>
 </head>
 <body>
+
 <header>
-  <div class="brand">
-    <div class="logo">♡</div>
-    <div>
-      <h1>FARMACIA EDAD DORADA</h1>
-      <p>Cuidamos de ti en cada etapa de la vida</p>
-    </div>
-  </div>
+  <div class="logo">Farmacia <span>Edad Dorada</span></div>
   <nav>
     <a href="#inicio">Inicio</a>
     <a href="#catalogo">Catálogo</a>
     <a href="#nosotros">Nosotros</a>
     <a href="#fidelizacion">Fidelización</a>
+    <button class="cart-button" onclick="openCart()">Carrito (<span id="cart-count">0</span>)</button>
   </nav>
 </header>
 
 <main>
-<section class="hero" id="inicio">
-  <div class="hero-inner">
-    <div class="eyebrow">BIENESTAR · CUIDADO · CONFIANZA</div>
-    <h2>Una vida dorada merece un cuidado especial.</h2>
-    <p>Encuentra productos para el cuidado de la incontinencia,
-    nutrición especializada, vitaminas e higiene personal.
-    Te acompañamos con respeto y calidez en cada etapa de la vida.</p>
-    <a class="btn btn-gold" href="#catalogo">Explorar catálogo</a>
-    <a class="btn btn-outline" href="#fidelizacion">Unirme al programa</a>
-  </div>
-</section>
-
-<div class="trust">
-  <span>♡ Atención humanizada</span>
-  <span>✧ Bienestar y cuidado</span>
-  <span>❋ Catálogo organizado</span>
-</div>
-
-<section id="catalogo">
-  <div class="section-title">
-    <h2>Nuestro catálogo</h2>
-    <p>Productos seleccionados para acompañar el cuidado diario.
-    Explora las categorías y encuentra lo que buscas.</p>
-  </div>
-  <div class="searchbar">
-    <input id="search" type="search" placeholder="Buscar un producto..." aria-label="Buscar productos">
-  </div>
-  <div class="filters" id="filters">
-    <button class="filter active" data-category="todos">Todos</button>
-    <button class="filter" data-category="incontinencia">Pañales y protección</button>
-    <button class="filter" data-category="nutricion">Nutrición especializada</button>
-    <button class="filter" data-category="vitaminas">Vitaminas y minerales</button>
-    <button class="filter" data-category="higiene">Higiene y cuidado personal</button>
-  </div>
-  <div class="grid" id="products"></div>
-  <div class="notice"><strong>Importante:</strong> catálogo académico de demostración.
-  Los precios son ficticios, las imágenes gráficas son ilustrativas y no se confirma
-  disponibilidad comercial. Consulta a un profesional de salud sobre suplementos
-  y productos adecuados para cada persona.</div>
-</section>
-
-<section class="about" id="nosotros">
-  <div class="about-grid">
+  <div class="hero" id="inicio">
     <div>
-      <div class="eyebrow">NUESTRA ESENCIA</div>
-      <h2>Cuidar también es acompañar.</h2>
-      <p>En Farmacia Edad Dorada creemos que el cuidado de los adultos mayores
-      debe estar acompañado de empatía, respeto y confianza. Nuestro proyecto
-      busca facilitar la exploración de productos de cuidado personal y bienestar
-      para las personas mayores, sus familias y cuidadores.</p>
-      <p>Queremos que cada visita sea clara, cálida y sencilla.</p>
+      <div class="eyebrow">BIENESTAR · CONFIANZA · ACOMPAÑAMIENTO</div>
+      <h1>Cuidamos de ti en cada etapa de la vida</h1>
+      <p>Productos de cuidado personal, nutrición y bienestar para adultos mayores, sus familias y cuidadores.</p>
+      <p><em>Cuidar también es acompañar.</em></p>
+      <a class="btn" href="#catalogo">Explorar productos</a>
     </div>
-    <div class="values">
-      <div class="value"><span>♡</span><strong>Empatía</strong><span>Escuchamos y valoramos las necesidades de cada persona.</span></div>
-      <div class="value"><span>✧</span><strong>Confianza</strong><span>Información clara sobre los productos del catálogo.</span></div>
-      <div class="value"><span>❋</span><strong>Bienestar</strong><span>Promovemos el cuidado respetuoso y cotidiano.</span></div>
-      <div class="value"><span>☼</span><strong>Acompañamiento</strong><span>La familia y los cuidadores también son importantes.</span></div>
+    <div class="hero-art">
+      <strong>Edad Dorada</strong>
+      <p>Un espacio pensado para acompañarte con cariño, respeto y bienestar.</p>
     </div>
   </div>
-</section>
 
-<section class="loyalty" id="fidelizacion">
-  <div class="section-title">
-    <h2>Programa Edad Dorada</h2>
-    <p>Registra tus intereses para una experiencia de atención más cercana.
-    Este formulario es una demostración académica y no envía datos.</p>
-  </div>
-  <form class="formbox" id="loyaltyForm">
-    <div class="formgrid">
-      <div class="field">
-        <label for="name">Nombre completo *</label>
-        <input id="name" required placeholder="Tu nombre">
-      </div>
-      <div class="field">
-        <label for="phone">Teléfono (opcional)</label>
-        <input id="phone" type="tel" placeholder="Tu número de contacto">
-      </div>
-      <div class="field">
-        <label for="role">¿Para quién buscas productos? *</label>
-        <select id="role" required>
-          <option value="">Selecciona una opción</option>
-          <option>Para mí</option>
-          <option>Para un familiar</option>
-          <option>Soy cuidador/a</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="interest">Categoría de interés *</label>
-        <select id="interest" required>
-          <option value="">Selecciona una categoría</option>
-          <option>Pañales y protección</option>
-          <option>Nutrición especializada</option>
-          <option>Vitaminas y minerales</option>
-          <option>Higiene y cuidado personal</option>
-          <option>Varias categorías</option>
-        </select>
-      </div>
-      <div class="field full">
-        <label for="contact">Medio de contacto preferido</label>
-        <select id="contact">
-          <option>WhatsApp</option>
-          <option>Llamada telefónica</option>
-          <option>Correo electrónico</option>
-          <option>Solo registro académico</option>
-        </select>
-      </div>
+  <section id="catalogo">
+    <div class="section-heading">
+      <h2>Nuestro catálogo</h2>
+      <p>Encuentra productos de referencia para el cuidado y el bienestar diario.</p>
     </div>
-    <label class="check"><input type="checkbox" required>
-      <span>Entiendo que este es un formulario de demostración académica y que los datos no se enviarán ni almacenarán.</span>
-    </label>
-    <label class="check"><input type="checkbox" id="promos">
-      <span>Me interesaría recibir información sobre novedades y promociones en una versión futura del proyecto. (Opcional)</span>
-    </label>
-    <button class="btn btn-gold" type="submit">Probar registro</button>
-    <div id="formMessage" role="status"></div>
-  </form>
-</section>
+
+    <div class="category-list">
+      <button class="category active" onclick="setCategory('Todas', this)">Ver todos</button>
+      <button class="category" onclick="setCategory('Incontinencia', this)">Pañales y cuidado de la incontinencia</button>
+      <button class="category" onclick="setCategory('Nutrición', this)">Nutrición especializada</button>
+      <button class="category" onclick="setCategory('Vitaminas', this)">Vitaminas y minerales</button>
+      <button class="category" onclick="setCategory('Higiene', this)">Higiene y cuidado personal</button>
+    </div>
+
+    <div class="search-row">
+      <input id="search" type="search" placeholder="Buscar un producto..." oninput="renderProducts()">
+      <select id="sort" onchange="renderProducts()">
+        <option value="default">Ordenar por</option>
+        <option value="low">Precio: menor a mayor</option>
+        <option value="high">Precio: mayor a menor</option>
+        <option value="name">Nombre A-Z</option>
+      </select>
+    </div>
+
+    <div class="products" id="products"></div>
+    <p class="notice">Sitio académico demostrativo. Los precios son ficticios, no corresponden a ofertas comerciales reales y no permiten realizar compras.</p>
+  </section>
+
+  <section class="about" id="nosotros">
+    <div>
+      <h2>Más que productos, acompañamiento</h2>
+      <p>En Farmacia Edad Dorada creemos que el bienestar se construye con atención, empatía y orientación responsable. Nuestro catálogo académico está enfocado en necesidades frecuentes de los adultos mayores y de quienes los acompañan.</p>
+      <p>La elección de suplementos nutricionales y productos de cuidado debe tener en cuenta las necesidades individuales y la orientación de profesionales de salud cuando corresponda.</p>
+    </div>
+    <div class="about-card">
+      <strong>¿Qué nos inspira?</strong><br>
+      Atención respetuosa<br>
+      Información clara<br>
+      Bienestar en cada etapa<br>
+      Apoyo a familias y cuidadores
+    </div>
+  </section>
+
+  <section id="fidelizacion">
+    <div class="section-heading">
+      <h2>Club Edad Dorada</h2>
+      <p>Un formulario demostrativo para conocer a nuestros visitantes.</p>
+    </div>
+    <form class="loyalty" onsubmit="submitForm(event)">
+      <label for="nombre">Nombre</label>
+      <input id="nombre" type="text" placeholder="Escribe tu nombre" required>
+      <label for="correo">Correo electrónico</label>
+      <input id="correo" type="email" placeholder="nombre@correo.com" required>
+      <label for="telefono">Teléfono (opcional)</label>
+      <input id="telefono" type="tel" placeholder="Tu número de contacto">
+      <button type="submit">Enviar formulario de demostración</button>
+      <p class="notice">Este formulario no envía ni almacena información personal.</p>
+    </form>
+  </section>
 </main>
 
 <footer>
-  <strong>FARMACIA EDAD DORADA</strong>
-  <p>Cuidamos de ti en cada etapa de la vida.</p>
-  <p>Proyecto académico simulado. No es una farmacia real.
-  Productos, presentaciones y precios con fines ilustrativos.</p>
-  <p>© <span id="year"></span> Farmacia Edad Dorada</p>
+  <div class="logo">Farmacia <span>Edad Dorada</span></div>
+  <div>Cuidamos de ti en cada etapa de la vida.</div>
+  <div>Proyecto académico demostrativo · Colombia</div>
 </footer>
 
-<button class="cart-fab" id="cartButton">🛒 Mi carrito (<span id="cartCount">0</span>)</button>
-<aside class="cart-panel" id="cartPanel" aria-label="Carrito de demostración">
-  <div class="cart-head"><h2>Mi carrito</h2><button class="close" id="closeCart" aria-label="Cerrar carrito">×</button></div>
-  <p style="font-size:12px;color:#6b7787">Carrito de demostración. No procesa compras reales.</p>
-  <div id="cartItems"></div>
-  <div class="cart-total" id="cartTotal">Total: $0 COP</div>
-  <button class="btn btn-gold" id="clearCart" style="width:100%">Vaciar carrito</button>
-</aside>
+<div class="modal" id="cart-modal" onclick="if(event.target === this) closeCart()">
+  <div class="modal-box">
+    <button class="close" onclick="closeCart()">Cerrar</button>
+    <h2>Tu carrito demostrativo</h2>
+    <div id="cart-items"></div>
+    <h3 id="cart-total">Total: $0</h3>
+    <p class="notice">Esta página es una demostración académica. No se procesan pedidos ni pagos.</p>
+    <button class="add" onclick="clearCart()">Vaciar carrito</button>
+  </div>
+</div>
 
 <script>
 const products = [
- {id:1,name:"TENA Slip para adultos",cat:"incontinencia",desc:"Pañal para el manejo de la incontinencia. Talla y absorción por confirmar.",price:68900,icon:"🩲"},
- {id:2,name:"TENA Slip Clásicos para adultos",cat:"incontinencia",desc:"Opción de protección para el cuidado diario.",price:54900,icon:"🩲"},
- {id:3,name:"TENA Pants para adultos",cat:"incontinencia",desc:"Ropa interior absorbente para adultos.",price:62900,icon:"🩲"},
- {id:4,name:"TENA Lady",cat:"incontinencia",desc:"Producto absorbente de cuidado femenino.",price:28900,icon:"🌸"},
- {id:5,name:"TENA Men",cat:"incontinencia",desc:"Protección absorbente diseñada para hombres.",price:31900,icon:"🛡️"},
- {id:6,name:"Protectores absorbentes de cama",cat:"incontinencia",desc:"Protectores desechables para superficies de descanso.",price:35900,icon:"🛏️"},
- {id:7,name:"Ensure Advance — presentación pequeña",cat:"nutricion",desc:"Nutrición especializada. Tamaño ilustrativo.",price:39900,icon:"🥛"},
- {id:8,name:"Ensure Advance — presentación grande",cat:"nutricion",desc:"Nutrición especializada. Tamaño ilustrativo.",price:89900,icon:"🥛"},
- {id:9,name:"Ensure Plus",cat:"nutricion",desc:"Producto de nutrición oral especializada.",price:79900,icon:"🥤"},
- {id:10,name:"Ensure Original",cat:"nutricion",desc:"Producto nutricional para complementar la alimentación según indicación.",price:69900,icon:"🥛"},
- {id:11,name:"Centrum Silver",cat:"vitaminas",desc:"Multivitamínico comercial para adultos.",price:49900,icon:"💊"},
- {id:12,name:"Calcio con vitamina D",cat:"vitaminas",desc:"Suplemento de calcio y vitamina D. Uso según necesidad individual.",price:32900,icon:"☀️"},
- {id:13,name:"Vitamina D",cat:"vitaminas",desc:"Suplemento vitamínico en presentación ilustrativa.",price:25900,icon:"🌞"},
- {id:14,name:"Vitamina B12",cat:"vitaminas",desc:"Suplemento de vitamina B12 en presentación ilustrativa.",price:27900,icon:"💊"},
- {id:15,name:"Multivitamínico para adultos",cat:"vitaminas",desc:"Complemento vitamínico de demostración.",price:36900,icon:"✨"},
- {id:16,name:"Crema hidratante Cetaphil",cat:"higiene",desc:"Cuidado e hidratación de la piel.",price:32900,icon:"🧴"},
- {id:17,name:"Crema hidratante CeraVe",cat:"higiene",desc:"Producto hidratante para el cuidado cutáneo.",price:42900,icon:"🧴"},
- {id:18,name:"Crema Eucerin",cat:"higiene",desc:"Producto de cuidado de la piel.",price:45900,icon:"🧴"},
- {id:19,name:"Pañitos húmedos",cat:"higiene",desc:"Para la higiene cotidiana.",price:12900,icon:"🧻"},
- {id:20,name:"Jabón suave para la piel",cat:"higiene",desc:"Producto de limpieza para el cuidado personal.",price:15900,icon:"🫧"},
- {id:21,name:"Crema protectora para la piel",cat:"higiene",desc:"Cuidado de la piel expuesta a la humedad.",price:24900,icon:"🤍"},
- {id:22,name:"Guantes desechables",cat:"higiene",desc:"Accesorio de apoyo para rutinas de cuidado.",price:18900,icon:"🧤"}
+  {id:1,name:"TENA Slip pañal para adulto",category:"Incontinencia",desc:"Pañal absorbente para el cuidado de la incontinencia.",price:65000,img:"https://www.tena.com.co/"},
+  {id:2,name:"TENA Pants ropa interior absorbente",category:"Incontinencia",desc:"Alternativa absorbente para el cuidado diario.",price:72000,img:"https://www.tena.com.co/productos/"},
+  {id:3,name:"TENA Slip Comfort",category:"Incontinencia",desc:"Producto absorbente para adultos.",price:59000,img:"https://www.tena.com.co/productos/"},
+  {id:4,name:"TENA protector para pérdidas leves",category:"Incontinencia",desc:"Protección para necesidades específicas de incontinencia.",price:28000,img:"https://www.tena.com.co/productos/"},
+  {id:5,name:"Ensure en polvo vainilla",category:"Nutrición",desc:"Producto de nutrición especializada para adultos.",price:89000,img:"https://www.contigo.abbott/es-co/marca/ensure/ensure/_jcr_content/root/container/container/tabs_copy_1899647667/item_1711442281019/columncontrol/tab_item_no_0/image.coreimg.png/1767686534895/ensure-base-caracteristicas.png"},
+  {id:6,name:"Ensure en polvo chocolate",category:"Nutrición",desc:"Nutrición especializada en presentación en polvo.",price:89000,img:"https://www.contigo.abbott/es-co/marca/ensure/ensure/_jcr_content/root/container/container/tabs_copy_1899647667/item_1711442281019/columncontrol/tab_item_no_0/image.coreimg.png/1767686534895/ensure-base-caracteristicas.png"},
+  {id:7,name:"Ensure en polvo fresa",category:"Nutrición",desc:"Alternativa de nutrición especializada para adultos.",price:89000,img:"https://www.contigo.abbott/es-co/marca/ensure/ensure/_jcr_content/root/container/container/tabs_copy_1899647667/item_1711442281019/columncontrol/tab_item_no_0/image.coreimg.png/1767686534895/ensure-base-caracteristicas.png"},
+  {id:8,name:"Ensure líquido",category:"Nutrición",desc:"Presentación líquida lista para consumir según su etiqueta.",price:16000,img:"https://www.contigo.abbott/es-co/marca/ensure/ensure"},
+  {id:9,name:"Centrum Silver +50",category:"Vitaminas",desc:"Suplemento dietario multivitamínico para mayores de 50 años.",price:68000,img:"https://i-cf65.ch-static.com/content/dam/cf-consumer-healthcare/bp-centrum/es_CO/pages/2026-updates/centrum-silver-50-plus-plp.png?auto=format"},
+  {id:10,name:"Centrum Silver Men",category:"Vitaminas",desc:"Multivitamínico de la línea para hombres mayores de 50 años.",price:72000,img:"https://i-cf65.ch-static.com/content/dam/cf-consumer-healthcare/bp-centrum/es_CO/pages/2026-updates/centrum-silver-50-plus-plp.png?auto=format"},
+  {id:11,name:"Centrum Silver Women",category:"Vitaminas",desc:"Multivitamínico de la línea para mujeres mayores de 50 años.",price:72000,img:"https://i-cf65.ch-static.com/content/dam/cf-consumer-healthcare/bp-centrum/es_CO/pages/2026-updates/centrum-silver-50-plus-plp.png?auto=format"},
+  {id:12,name:"Vitamina C",category:"Vitaminas",desc:"Suplemento de vitamina C. Verificar presentación y etiqueta.",price:25000,img:"https://www.centrumcolombia.com/productos/centrum-silver/"},
+  {id:13,name:"Crema hidratante corporal",category:"Higiene",desc:"Producto de cuidado e hidratación de la piel.",price:32000,img:"https://www.eucerin.com.co/productos"},
+  {id:14,name:"Limpiador suave para la piel",category:"Higiene",desc:"Producto de higiene personal para el cuidado diario.",price:28000,img:"https://www.eucerin.com.co/productos"},
+  {id:15,name:"Crema para piel seca",category:"Higiene",desc:"Cuidado de la piel seca. Elegir según las necesidades personales.",price:45000,img:"https://www.eucerin.com.co/productos"},
+  {id:16,name:"Protector labial",category:"Higiene",desc:"Producto para el cuidado diario de los labios.",price:18000,img:"https://www.eucerin.com.co/productos"},
+  {id:17,name:"Toallitas húmedas para adultos",category:"Higiene",desc:"Apoyo para la higiene y el cuidado personal.",price:15000,img:"https://www.tena.com.co/productos/"},
+  {id:18,name:"Jabón suave de uso diario",category:"Higiene",desc:"Producto básico de higiene personal.",price:12000,img:"https://www.eucerin.com.co/productos"},
+  {id:19,name:"TENA Slip talla M",category:"Incontinencia",desc:"Referencia de pañal absorbente para adultos.",price:60000,img:"https://www.tena.com.co/productos/"},
+  {id:20,name:"TENA Slip talla L",category:"Incontinencia",desc:"Referencia de pañal absorbente para adultos.",price:64000,img:"https://www.tena.com.co/productos/"},
+  {id:21,name:"Ensure Advance",category:"Nutrición",desc:"Producto de nutrición especializada; consultar orientación profesional.",price:99000,img:"https://www.contigo.abbott/es-co/marca/ensure/ensure"},
+  {id:22,name:"Multivitamínico para adultos",category:"Vitaminas",desc:"Ejemplo de categoría. Revisar ingredientes y etiqueta antes de elegir.",price:35000,img:"https://www.centrumcolombia.com/productos/centrum-silver/"}
 ];
-const labels = {
- incontinencia:"Pañales y protección",
- nutricion:"Nutrición especializada",
- vitaminas:"Vitaminas y minerales",
- higiene:"Higiene y cuidado personal"
-};
-let selected = "todos";
+
+let currentCategory = "Todas";
 let cart = [];
 
-function money(n){
- return new Intl.NumberFormat("es-CO",{style:"currency",currency:"COP",
- maximumFractionDigits:0}).format(n);
+function money(value) {
+  return new Intl.NumberFormat("es-CO", {
+    style:"currency", currency:"COP", maximumFractionDigits:0
+  }).format(value);
 }
-function renderProducts(){
- const query = document.getElementById("search").value.trim().toLowerCase();
- const shown = products.filter(p =>
- (selected==="todos" || p.cat===selected) &&
- (p.name+" "+p.desc+" "+labels[p.cat]).toLowerCase().includes(query)
- );
- const root = document.getElementById("products");
- if(!shown.length){
-  root.innerHTML='<div class="empty">No encontramos productos con esa búsqueda.</div>';
-  return;
- }
- root.innerHTML = shown.map(p=>`
- <article class="card">
-   <div class="product-art" aria-hidden="true">${p.icon}</div>
-   <div class="card-content">
-     <span class="tag">${labels[p.cat]}</span>
-     <h3>${p.name}</h3>
-     <p>${p.desc}</p>
-     <div class="price">${money(p.price)}</div>
-     <div class="demo">Precio ficticio · COP</div>
-     <button class="add" onclick="addToCart(${p.id})">Agregar al carrito</button>
-   </div>
- </article>`).join("");
-}
-document.getElementById("filters").addEventListener("click",e=>{
- const btn=e.target.closest("button[data-category]");
- if(!btn)return;
- selected=btn.dataset.category;
- document.querySelectorAll(".filter").forEach(b=>b.classList.toggle("active",b===btn));
- renderProducts();
-});
-document.getElementById("search").addEventListener("input",renderProducts);
 
-function addToCart(id){
- const item=cart.find(x=>x.id===id);
- if(item)item.qty++;
- else cart.push({id,qty:1});
- renderCart();
+function setCategory(category, button) {
+  currentCategory = category;
+  document.querySelectorAll(".category").forEach(b => b.classList.remove("active"));
+  button.classList.add("active");
+  renderProducts();
 }
-function renderCart(){
- const count=cart.reduce((sum,x)=>sum+x.qty,0);
- document.getElementById("cartCount").textContent=count;
- const root=document.getElementById("cartItems");
- root.innerHTML=cart.length?cart.map(x=>{
-  const p=products.find(p=>p.id===x.id);
-  return `<div class="cart-line">${p.name}<br>${x.qty} × ${money(p.price)}
-  <button onclick="removeFromCart(${x.id})">Quitar</button></div>`;
- }).join(""):'<p>Tu carrito está vacío.</p>';
- const total=cart.reduce((sum,x)=>sum+products.find(p=>p.id===x.id).price*x.qty,0);
- document.getElementById("cartTotal").textContent="Total: "+money(total)+" COP";
+
+function renderProducts() {
+  const query = document.getElementById("search").value.toLowerCase().trim();
+  const sort = document.getElementById("sort").value;
+  let filtered = products.filter(p =>
+    (currentCategory === "Todas" || p.category === currentCategory) &&
+    (p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query))
+  );
+
+  if(sort === "low") filtered.sort((a,b) => a.price-b.price);
+  if(sort === "high") filtered.sort((a,b) => b.price-a.price);
+  if(sort === "name") filtered.sort((a,b) => a.name.localeCompare(b.name));
+
+  const container = document.getElementById("products");
+  container.innerHTML = "";
+
+  if(filtered.length === 0) {
+    container.innerHTML = "<p>No encontramos productos con esa búsqueda.</p>";
+    return;
+  }
+
+  filtered.forEach(p => {
+    const card = document.createElement("article");
+    card.className = "product";
+    card.innerHTML = `
+      <div class="product-image">
+        <img src="${p.img}" alt="Imagen de referencia de ${p.name}" loading="lazy">
+        <div class="image-fallback">${p.name}<br><small>Imagen de referencia</small></div>
+      </div>
+      <div class="product-info">
+        <span class="tag">${p.category}</span>
+        <h3>${p.name}</h3>
+        <p>${p.desc}</p>
+        <div class="price">${money(p.price)}</div>
+        <div class="fake-price">Precio ilustrativo académico</div>
+        <button class="add" onclick="addToCart(${p.id})">Agregar al carrito</button>
+      </div>`;
+    const img = card.querySelector("img");
+    img.addEventListener("error", () => {
+      img.style.display = "none";
+      card.querySelector(".image-fallback").style.display = "block";
+    });
+    container.appendChild(card);
+  });
 }
-function removeFromCart(id){
- cart=cart.filter(x=>x.id!==id);
- renderCart();
+
+function addToCart(id) {
+  const item = cart.find(p => p.id === id);
+  if(item) item.qty++;
+  else cart.push({...products.find(p => p.id === id), qty:1});
+  updateCart();
 }
-document.getElementById("cartButton").addEventListener("click",()=>{
- document.getElementById("cartPanel").classList.add("open");
-});
-document.getElementById("closeCart").addEventListener("click",()=>{
- document.getElementById("cartPanel").classList.remove("open");
-});
-document.getElementById("clearCart").addEventListener("click",()=>{
- cart=[];renderCart();
-});
-document.getElementById("loyaltyForm").addEventListener("submit",e=>{
- e.preventDefault();
- document.getElementById("formMessage").textContent=
- "¡Gracias! La demostración del formulario funcionó. No se enviaron ni guardaron tus datos.";
- e.target.reset();
-});
-document.getElementById("year").textContent=new Date().getFullYear();
+
+function updateCart() {
+  document.getElementById("cart-count").textContent =
+    cart.reduce((sum, p) => sum + p.qty, 0);
+  const list = document.getElementById("cart-items");
+  list.innerHTML = "";
+  let total = 0;
+
+  if(cart.length === 0) {
+    list.innerHTML = "<p>Tu carrito está vacío.</p>";
+  }
+
+  cart.forEach(p => {
+    total += p.price * p.qty;
+    const row = document.createElement("div");
+    row.className = "cart-line";
+    row.innerHTML = `<span>${p.name} × ${p.qty}</span><strong>${money(p.price*p.qty)}</strong>`;
+    list.appendChild(row);
+  });
+
+  document.getElementById("cart-total").textContent = "Total: " + money(total);
+}
+
+function openCart() {
+  updateCart();
+  document.getElementById("cart-modal").classList.add("open");
+}
+function closeCart() {
+  document.getElementById("cart-modal").classList.remove("open");
+}
+function clearCart() {
+  cart = [];
+  updateCart();
+}
+function submitForm(event) {
+  event.preventDefault();
+  alert("¡Gracias! Este formulario es una demostración académica. No se ha enviado ni guardado tu información.");
+  event.target.reset();
+}
+
 renderProducts();
-renderCart();
+updateCart();
 </script>
 </body>
 </html>
